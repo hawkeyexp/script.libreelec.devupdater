@@ -116,16 +116,16 @@ class Main(object):
         log.log("Selected build: " + str(selected_build))
 
         build_str = utils.format_build(selected_build)
-        msg = L10n(32003).format(utils.format_build(self.installed_build),
+        msg = L10n(32003).encode('utf8').format(utils.format_build(self.installed_build),
                                  build_str)
 
         if selected_build < self.installed_build:
-            args = (L10n(32004), L10n(32005), msg)
+            args = (L10n(32004).encode('utf8'), L10n(32005).encode('utf8'), msg)
         elif selected_build > self.installed_build:
-            args = (L10n(32001), L10n(32002), msg)
+            args = (L10n(32001).encode('utf8'), L10n(32002).encode('utf8'), msg)
         else:
-            msg = L10n(32007).format(build_str)
-            args = (L10n(32006), msg, L10n(32008))
+            msg = L10n(32007).encode('utf8').format(build_str)
+            args = (L10n(32006).encode('utf8'), msg, L10n(32008).encode('utf8'))
 
         if not utils.yesno(*args):
             sys.exit(0)
@@ -142,12 +142,12 @@ class Main(object):
             log.log("Archive builds to " + self.archive_dir)
             if not xbmcvfs.exists(self.archive_root):
                 log.log("Unable to access archive")
-                utils.ok(L10n(32009), L10n(32010).format(self.archive_root), L10n(32011))
+                utils.ok(L10n(32009).encode('utf8'), L10n(32010).encode('utf8').format(self.archive_root), L10n(32011).encode('utf8'))
                 addon.open_settings()
                 sys.exit(1)
             elif not xbmcvfs.mkdir(self.archive_dir):
                 log.log("Unable to create directory in archive")
-                utils.ok(L10n(32009), L10n(32012).format(self.archive_dir), L10n(32013))
+                utils.ok(L10n(32009).encode('utf8'), L10n(32012).encode('utf8').format(self.archive_dir), L10n(32013).encode('utf8'))
                 sys.exit(1)
 
     def maybe_download(self):
@@ -176,7 +176,7 @@ class Main(object):
                 try:
                     log.log("Starting download of {} to {}".format(self.selected_build.url,
                                                                    self.download_path))
-                    with progress.FileProgress(L10n(32014), remote_file, self.download_path,
+                    with progress.FileProgress(L10n(32014).encode('utf8'), remote_file, self.download_path,
                                                size, self.background) as downloader:
                         downloader.start()
                     log.log("Completed download")
@@ -193,7 +193,7 @@ class Main(object):
                 try:
                     bf = open(self.download_path, 'rb')
                     log.log("Starting decompression of " + self.download_path)
-                    with progress.DecompressProgress(L10n(32015),
+                    with progress.DecompressProgress(L10n(32015).encode('utf8'),
                                                      bf, self.temp_tar_path, size,
                                                      self.background) as decompressor:
                         decompressor.start()
@@ -222,7 +222,7 @@ class Main(object):
 
             archive = xbmcvfs.File(self.archive_tar_path)
             try:
-                with progress.FileProgress(L10n(32016),
+                with progress.FileProgress(L10n(32016).encode('utf8'),
                                            archive, self.update_tar_path, archive.size(),
                                            self.background) as extractor:
                     extractor.start()
@@ -242,7 +242,7 @@ class Main(object):
             size = os.path.getsize(self.temp_tar_path)
 
             try:
-                with progress.FileProgress(L10n(32017),
+                with progress.FileProgress(L10n(32017).encode('utf8'),
                                            tar, self.archive_tar_path, size,
                                            self.background) as extractor:
                     extractor.start()
@@ -267,7 +267,7 @@ class Main(object):
                 ti = tf.extractfile(path_in_tar)
                 temp_image_path = os.path.join(TEMP_PATH, update_image)
                 try:
-                    with progress.FileProgress(L10n(32018), ti, temp_image_path, ti.size,
+                    with progress.FileProgress(L10n(32018).encode('utf8'), ti, temp_image_path, ti.size,
                                                self.background) as extractor:
                         extractor.start()
                     log.log("Extracted " + temp_image_path)
@@ -283,9 +283,9 @@ class Main(object):
                 if not progress.md5sum_verified(md5sum, temp_image_path,
                                                 self.background):
                     log.log("{} md5 mismatch!".format(update_image))
-                    utils.ok(L10n(32019).format(update_image),
+                    utils.ok(L10n(32019).encode('utf8').format(update_image),
                              self.selected_build.filename,
-                             L10n(32020).format(update_image), L10n(32021))
+                             L10n(32020).encode('utf8').format(update_image), L10n(32021).encode('utf8'))
                     utils.remove_update_files()
                     return
                 else:
@@ -300,13 +300,13 @@ class Main(object):
         do_notify = False
 
         if addon.get_bool_setting('confirm_reboot'):
-            if utils.yesno(L10n(32022), " ", L10n(32024).format(build_str)):
+            if utils.yesno(L10n(32022).encode('utf8'), " ", L10n(32024).encode('utf8').format(build_str)):
                 xbmc.restart()
             else:
                 do_notify = True
         else:
             if progress.reboot_countdown(
-                    L10n(32054), L10n(32025).format(build_str),
+                    L10n(32054).encode('utf8'), L10n(32025).encode('utf8').format(build_str),
                     addon.get_int_setting('reboot_count')):
                 xbmc.restart()
                 sys.exit()
@@ -314,7 +314,7 @@ class Main(object):
                 do_notify = True
 
         if do_notify:
-            utils.notify(L10n(32026).format(build_str))
+            utils.notify(L10n(32026).encode('utf8').format(build_str))
 
 
 def new_build_check():
@@ -354,14 +354,14 @@ def new_build_check():
 
                 if utils.yesno(
                         addon.name,
-                        line1=L10n(32027).format(utils.format_build(latest)),
-                        line2=L10n(32028).format(utils.format_build(installed_build)),
-                        line3=L10n(32029),
+                        line1=L10n(32027).encode('utf8').format(utils.format_build(latest)),
+                        line2=L10n(32028).encode('utf8').format(utils.format_build(installed_build)),
+                        line3=L10n(32029).encode('utf8'),
                         autoclose=autoclose_ms):
                     with Main() as main:
                         main.start()
             else:
-                utils.notify(L10n(32030).format(utils.format_build(latest)),
+                utils.notify(L10n(32030).encode('utf8').format(utils.format_build(latest)),
                              4000)
 
 

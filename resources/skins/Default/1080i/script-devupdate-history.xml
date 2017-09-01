@@ -5,19 +5,19 @@
         <control type="group">
             <animation effect="fade" start="0" end="100" time="600">WindowOpen</animation>
             <animation effect="fade" start="1000" end="0" time="600">WindowClose</animation>
-            <width>1100</width>
+            <width>1920</width>
             <height>1080</height>
             <centerleft>960</centerleft>
             <centertop>540</centertop>
 
             <control type="image">
                 <description>Background image</description>
-                <texture colordiffuse="ff111111">white.png</texture>
+                <texture colordiffuse="ff111111">ledu_white.png</texture>
             </control>
  
             <control type="label" id="1">
                 <description>Title</description>
-                <width>1100</width>
+                <width>1920</width>
                 <height>90</height>
                 <top>40</top>
                 <align>center</align>
@@ -66,9 +66,9 @@
                 <top>131</top>
                 <left>1092</left>
                 <height>880</height>
-                <texturesliderbackground colordiffuse="ff999999">white.png</texturesliderbackground>
-                <texturesliderbar colordiffuse="ffffffff">white.png</texturesliderbar>
-                <texturesliderbarfocus colordiffuse="ffffffff">white.png</texturesliderbarfocus>
+                <texturesliderbackground colordiffuse="ff999999">ledu_white.png</texturesliderbackground>
+                <texturesliderbar colordiffuse="ffffffff">ledu_white.png</texturesliderbar>
+                <texturesliderbarfocus colordiffuse="ffffffff">ledu_white.png</texturesliderbarfocus>
                 <showonepage>false</showonepage>
             </control>
         </control>

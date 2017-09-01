@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
     <category label="32101">
         <setting label="32102" type="text" id="source_name" default="Official Snapshot Builds" visible="false"/>
@@ -26,7 +26,7 @@
         <setting label="32118" type="number" id="reboot_count" default="10" visible="eq(-1,false)"/>
     </category>
     <category label="32119">
-        <setting label="Custom Source 1" type="lsep"/>
+        <setting label="32142" type="lsep"/>
         <setting label="32121" type="bool" id="custom_source_enable" default="false"/>
         <setting type="sep"/>
         <setting label="32122" type="enum" id="build_type" values="Development|Release|Milhouse|DarkAngel2401 Dual Audio" enable="eq(-2,true)" default="2"/>
@@ -37,7 +37,7 @@
         <setting label="32127" type="text" id="custom_subdir" enable="eq(-7,true) + eq(-1,true)" visible="lt(-5,2)" subsetting="true"/>
         <setting label="32130" type="text" id="other_subdir" enable="eq(-8,true)" visible="eq(-6,2) + eq(-3,0)" subsetting="true"/>
 
-        <setting label="Custom Source 2" type="lsep"/>
+        <setting label="32143" type="lsep"/>
         <setting label="32121" type="bool" id="custom_source_enable_2" default="false"/>
         <setting type="sep"/>
         <setting label="32122" type="enum" id="build_type_2" values="Development|Release|Milhouse|DarkAngel2401 Dual Audio" enable="eq(-2,true)" default="2"/>
@@ -48,7 +48,7 @@
         <setting label="32127" type="text" id="custom_subdir_2" enable="eq(-7,true) + eq(-1,true)" visible="lt(-5,2)" subsetting="true"/>
         <setting label="32130" type="text" id="other_subdir_2" enable="eq(-8,true)" visible="eq(-6,2) + eq(-3,0)" subsetting="true"/>
 
-        <setting label="Custom Source 3" type="lsep"/>
+        <setting label="32144" type="lsep"/>
         <setting label="32121" type="bool" id="custom_source_enable_3" default="false"/>
         <setting type="sep"/>
         <setting label="32122" type="enum" id="build_type_3" values="Development|Release|Milhouse|DarkAngel2401 Dual Audio" enable="eq(-2,true)" default="2"/>

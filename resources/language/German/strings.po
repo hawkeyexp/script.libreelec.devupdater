@@ -26,7 +26,7 @@ msgstr "Upgrade"
 
 msgctxt "#32003"
 msgid "{}  to  {} ?"
-msgstr "{}  bis  {} ?"
+msgstr "{}  auf  {} ?"
 
 msgctxt "#32004"
 msgid "Confirm downgrade"
@@ -106,7 +106,7 @@ msgstr "Neustart bestätigen"
 
 msgctxt "#32024"
 msgid "Reboot now to install build  {}?"
-msgstr "Jett neu starten um Version  {}  zu installieren?"
+msgstr "Jetzt neu starten um Version  {}  zu installieren?"
 
 msgctxt "#32025"
 msgid "Build  {}  is ready to install."
@@ -428,3 +428,14 @@ msgctxt "#32141"
 msgid "Select to show the list of available builds"
 msgstr "Auswählen um die Liste der Versionen anzuzeigen"
 
+msgctxt "#32142"
+msgid "Custom Source 1"
+msgstr "Eigene Quelle 1"
+
+msgctxt "#32143"
+msgid "Custom Source 2"
+msgstr "Eigene Quelle 2"
+
+msgctxt "#32144"
+msgid "Custom Source 3"
+msgstr "Eigene Quelle 3"

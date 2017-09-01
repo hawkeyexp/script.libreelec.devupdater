@@ -12,7 +12,7 @@
 
             <control type="image">
                 <description>Background image</description>
-                <texture colordiffuse="ff111111">white.png</texture>
+                <texture colordiffuse="ff111111">ledu_white.png</texture>
             </control>
  
             <control type="label" id="1">
@@ -37,9 +37,9 @@
                 <top>131</top>
                 <left>1912</left>
                 <height>880</height>
-                <texturesliderbackground colordiffuse="ff999999">white.png</texturesliderbackground>
-                <texturesliderbar colordiffuse="ffffffff">white.png</texturesliderbar>
-                <texturesliderbarfocus colordiffuse="ffffffff">white.png</texturesliderbarfocus>
+                <texturesliderbackground colordiffuse="ff999999">ledu_white.png</texturesliderbackground>
+                <texturesliderbar colordiffuse="ffffffff">ledu_white.png</texturesliderbar>
+                <texturesliderbarfocus colordiffuse="ffffffff">ledu_white.png</texturesliderbarfocus>
                 <showonepage>false</showonepage>
             </control>
         </control>
