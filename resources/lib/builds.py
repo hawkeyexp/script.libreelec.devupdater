@@ -210,8 +210,11 @@ class ReleaseLinkExtractor(BaseExtractor):
             filename = release['file']['name']
             release_name = re.search('-(\d+\.\d+\.\d+).tar', filename).group(1)
             release_link = ReleaseLink(base_url, filename, release_name)
-            if release_link:
-                yield release_link
+	    try:
+        	if release_link:
+            	    yield release_link
+	    except:
+		pass
 
 
 class MilhouseBuildLinkExtractor(BuildLinkExtractor):
