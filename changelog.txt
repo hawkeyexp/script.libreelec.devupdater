@@ -1,3 +1,7 @@
+5.1.1
+ - Fix startup error on libreelec.
+ - Add german translation.
+
 5.1.0
  - Added a multi-purpose commmand line script.
 
